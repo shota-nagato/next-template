@@ -2,6 +2,7 @@ version: '3'
 services:
   next:
     build: ./next
+    command: 'npm run dev'
     tty: true
     stdin_open: true
     volumes:

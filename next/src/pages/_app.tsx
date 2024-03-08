@@ -14,6 +14,7 @@ interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache
 }
 
+/* eslint-disable */
 export default function MyApp(props: MyAppProps): JSX.Element {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
   return (

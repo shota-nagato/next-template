@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import createEmotionServer from '@emotion/server/create-instance'
 import { RenderPageResult } from 'next/dist/shared/lib/utils'
 import Document, {
@@ -14,15 +13,17 @@ import createEmotionCache from '@/styles/createEmotionCache'
 import theme from '@/styles/theme'
 
 export default class MyDocument extends Document {
+  /* eslint-disable */
   render(): JSX.Element {
+    /* eslint-enable */
     return (
-      <Html lang='ja'>
+      <Html lang="ja">
         <Head>
           {/* PWA primary color */}
-          <meta name='theme-color' content={theme.palette.primary.main} />
+          <meta name="theme-color" content={theme.palette.primary.main} />
           <link
-            rel='stylesheet'
-            href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
         <body>
@@ -70,8 +71,9 @@ MyDocument.getInitialProps = async (ctx): Promise<DocumentInitialProps> => {
     originalRenderPage({
       enhanceApp:
         (App: any) =>
-        // eslint-disable-next-line react/display-name
+        /* eslint-disable */
         (props): JSX.Element => <App emotionCache={cache} {...props} />,
+      /* eslint-enable */
     })
 
   const initialProps = await Document.getInitialProps(ctx)
